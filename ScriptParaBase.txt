@@ -1,0 +1,108 @@
+SET QUOTED_IDENTIFIER ON
+
+go
+
+
+/* Create Empresas database.                                                                  */
+use master  
+
+go
+
+create database "Pasteleria"  
+
+go
+
+use "Pasteleria"  
+
+go
+
+create table "Usuario" ( 
+	"IdUsuario" int not null,
+	"NombreUser" nvarchar(15) not null,
+	"Pass"  nvarchar(15) not null,
+	"Correo"  nvarchar(50) not null,
+	"Comuna" nvarchar(30) not null,
+	"Direccion"  nvarchar(30) not null
+	)
+
+go
+
+alter table "Usuario"
+	add constraint "Usuario_PK" primary key ("IdUsuario")   
+
+
+go
+
+ 
+create table "Producto" ( 
+	"IdProd" int not null,
+	"NombreProduc" nvarchar(30) not null,
+	"Descripcion" nvarchar(300) not null,
+	"Stock" int not null,
+	"Precio" int not null,
+	"ImgUrl" nvarchar(50) not null,
+	"Tipo" nvarchar(20) not null
+	)  
+
+go
+
+alter table "Producto" 
+	add constraint "Producto_PK" primary key ("IdProd") 
+
+go
+INSERT INTO [Pasteleria].[dbo].[Usuario] VALUES (01,'Admin','1234','admin@pasteleria.cl','Santiago','Direccion 123')
+
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (01,'Canelon','Masa de galleta bañada en chocolate y crema chantilly.',20,1500,'img/canelon.jpg','Torta')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (02,'Eclaire','Masa de repollito crema chantilly y crema pastelera.',20,1500,'img/masa-cremapastelera.jpg','Torta')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (03,'Pastel de Chocolate','Pastel de bizcocho de chocolate, crema de chocolate y trozos de chocolate.',20,2000,'img/pastel-chocolate.jpg','Torta')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (04,'Pastel de Piña','Pastel de bizcocho blanco, chantilly y trozos de piña.',20,2000,'img/pastel-piña.jpg','Torta')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (05,'Pastel de Selva Negra','Bizcocho negro, crema chantilly, mermelada de guinda ácida y chocolate en ramas.',20,2000,'img/pastel-selva-negra.jpg','Torta')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (06,'Pastel de Vainilla - Lúcuma','Pastel bizcochuelo de vainilla con crema de lúcuma.',20,2000,'img/pastel-vainilla-lucuma.jpg','Torta')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (07,'Mousse de Berries','Suave crema de chantilly, yogurt, frambuesas, frutillas y arándanos en base de panqueque de vainilla.',20,4500,'img/trozo-mousse-de-berries.jpg','Torta')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (08,'Mousse de Chocolate','Suave crema de chantilly y chocolate en base de panqueque.',20,4500,'img/trozo-mousse-de-chocolate.jpg','Torta')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (09,'Mousse de frutilla','Suave crema de chantilly, yogurt y frutillas en base de panqueque de vainilla.',20,4500,'img/trozo-mousse-de-frutilla.jpg','Torta')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (10,'Torta mil hojas','Torta de hoja rasca con manjar.',20,2000,'img/NoValue.jpg','Torta')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (11,'Pastel de frutilla','Pastel de bizcocho blanco, chantilly y trozos de frutilla.',20,2000,'img/NoValue.jpg','Torta')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (12,'Pastel de durazno','Pastel de bizcocho blanco, chantilly y trozos de durazno.',20,2000,'img/NoValue.jpg','Torta')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (13,'Tres leches','Bizcocho con tres tipos de leche.',20,3000,'img/NoValue.jpg','Torta')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (14,'Pie de limón','Masa de galleta con merengue y capa de dulce de limón.',20,2500,'img/NoValue.jpg','Torta')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (15,'Torta de panqueque de naranja','Suave masa con sabor de naranja.',20,4500,'img/NoValue.jpg','Torta')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (16,'Pie de maracuyá','Masa de galleta con merengue y capa de dulce de maracuyá.',20,4500,'img/NoValue.jpg','Torta')
+
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (17,'Ave palta','Pan con pasta de pollo con mayonesa y palta.',20,2500,'img/NoValue.jpg','Sandwich')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (18,'Ave pimentón','Pan con pasta de pollo con mayonesa y pimentón.',20,2500,'img/NoValue.jpg','Sandwich')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (19,'Sandwish aliado','Pan con jamón y queso.',20,1000,'img/NoValue.jpg','Sandwich')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (20,'Sandwish con huevo','Marraqueta con huevo.',20,1500,'img/NoValue.jpg','Sandwich')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (21,'Sandwish con huevo y queso','Marraqueta con huevo y queso.',20,2000,'img/NoValue.jpg','Sandwich')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (22,'Sandwish con huevo y jamón','Marraqueta con huevo y jamón.',20,2000,'img/NoValue.jpg','Sandwich')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (23,'Sandwish palta tomate','Pan con palta y tomate.',20,2500,'img/NoValue.jpg','Sandwich')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (24,'Churrazco barros luco','Pan con churrazco y queso derretido.',20,3500,'img/NoValue.jpg','Sandwich')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (25,'Churrazco chacarero','Pan con churrazco y porotos verdes.',20,3500,'img/NoValue.jpg','Sandwich')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (26,'Churrazco papero','Pan con churrazco y papas fritas.',20,3500,'img/NoValue.jpg','Sandwich')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (27,'Hamburguesa vegana','Pan con hamburguesa de soya con lechuga, tomate y pepinillos.',20,2000,'img/NoValue.jpg','Sandwich')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (28,'Hamburguesa campesina','Pan con hamburguesa de vacuno con cebolla, lechuga, tomate y pepinillos.',20,2000,'img/NoValue.jpg','Sandwich')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (29,'Hamburguesa carnivora','Pan con hamburguesa de vacuno con queso, tocino y pepinillos.',20,2000,'img/NoValue.jpg','Sandwich')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (30,'Hamburguesa simple','Pan con hamburguesa de vacuno con queso.',20,1500,'img/NoValue.jpg','Sandwich')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (31,'King pollo club','Pan con pollo crispie con queso, lechuga y pepinillos.',20,1500,'img/NoValue.jpg','Sandwich')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (32,'Papas fritas','Papas fritas de tamaño mediano.',20,1000,'img/NoValue.jpg','Otros')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (33,'Aros de cebolla','Paquete con 6 aros de cebolla.',20,1000,'img/NoValue.jpg','Otros')
+
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (34,'Cupcake de frambuesa','Queque con crema y trozos de frambuesa.',20,1000,'img/NoValue.jpg','Cupcakes')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (35,'Cupcake de chocolate','Queque con crema de chocolate.',20,1000,'img/NoValue.jpg','Cupcakes')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (36,'Cupcake de durazno','Queque con crema y trozos de durazno.',20,1000,'img/NoValue.jpg','Cupcakes')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (37,'Cupcake de limón','Queque con crema de limón.',20,1000,'img/NoValue.jpg','Cupcakes')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (38,'Cupcake de naranja','Queque con crema de naranja.',20,1000,'img/NoValue.jpg','Cupcakes')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (39,'Cupcake de piña','Queque con crema y trozos de piña.',20,1000,'img/NoValue.jpg','Cupcakes')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (40,'Cupcake de colores','Queque con crema y mostacilla de dulce.',20,1000,'img/NoValue.jpg','Cupcakes')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (41,'Cupcake de manjar','Queque relleno con manjar y crema chantilly.',20,1000,'img/NoValue.jpg','Cupcakes')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (42,'Cupcake de frutilla','Queque con crema y trozos de frutilla.',20,1500,'img/NoValue.jpg','Cupcakes')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (43,'Cupcake de tutifruti','Queque con crema y trozos de macedonia de frutas.',20,1500,'img/NoValue.jpg','Cupcakes')
+
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (43,'Cupcake de Almendra','Queque con crema y trozos de almendras.',20,1500,'img/NoValue.jpg','Cupcakes')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (44,'Cupcake de maní','Queque con crema y trozos de maní.',20,1500,'img/NoValue.jpg','Cupcakes')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (45,'Cupcake de papaya','Queque con crema y trozos de papaya.',20,1500,'img/NoValue.jpg','Cupcakes')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (46,'Cupcake de cacao','Queque con crema y trozos de cacao.',20,1500,'img/NoValue.jpg','Cupcakes')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (47,'Cupcake de melón','Queque con crema y trozos de melón.',20,1500,'img/NoValue.jpg','Cupcakes')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (48,'Cupcake de arandano','Queque con crema y trozos de arandano.',20,1500,'img/NoValue.jpg','Cupcakes')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (49,'Cupcake de chocolate blanco','Queque con crema y trozos de chocolate blanco.',20,1500,'img/NoValue.jpg','Cupcakes')
+INSERT INTO [Pasteleria].[dbo].[Producto] VALUES (50,'Cupcake de platano','Queque con crema y trozos de platano.',20,1500,'img/NoValue.jpg','Cupcakes')
